@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Problèmes d'ordinateur</title>
+
+</head>
+<body>
+
+  <div id="container">
+    <h2>Problèmes d'ordinateur</h2>
+    <p>Veuillez répondre par "Oui" ou "Non" aux questions suivantes : <br> NB : le diagnostique sera afficher aprés avoir répondre à toutes les questions !</p>
+  
+    <div id="questions">
+      <p id="question1">L'ordinateur ne s'allume pas ?</p>
+      <button onclick="repondre('oui', 1)" id="oui1">Oui</button>
+      <button onclick="repondre('non', 1)" id="non1">Non</button>
+  
+      <p id="question2">Un bruit est émis par le ventilateur ?</p>
+      <button onclick="repondre('oui', 2)" id="oui2">Oui</button>
+      <button onclick="repondre('non', 2)" id="non2">Non</button>
+  
+      <p id="question3">Un écran noir apparaît au démarrage ?</p>
+      <button onclick="repondre('oui', 3)" id="oui3">Oui</button>
+      <button onclick="repondre('non', 3)" id="non3">Non</button>
+  
+      <p id="question4">L'ordinateur est lent ?</p>
+      <button onclick="repondre('oui', 4)" id="oui4">Oui</button>
+      <button onclick="repondre('non', 4)" id="non4">Non</button>
+  
+      <p id="question5">Vous rencontrez des problèmes de connexion Internet ?</p>
+      <button onclick="repondre('oui', 5)" id="oui5">Oui</button>
+      <button onclick="repondre('non', 5)" id="non5">Non</button>
+  
+      <p id="question6">Vous rencontrez des problèmes audio ?</p>
+      <button onclick="repondre('oui', 6)" id="oui6">Oui</button>
+      <button onclick="repondre('non', 6)" id="non6">Non</button>
+  
+      <p id="question7">Le système est gelé ?</p>
+      <button onclick="repondre('oui', 7)" id="oui7">Oui</button>
+      <button onclick="repondre('non', 7)" id="non7">Non</button>
+  
+      <p id="question8">Vous rencontrez un écran bleu de la mort (BSOD) ?</p>
+      <button onclick="repondre('oui', 8)" id="oui8">Oui</button>
+      <button onclick="repondre('non', 8)" id="non8">Non</button>
+  
+      <p id="question9">Vous soupçonnez une défaillance matérielle ?</p>
+      <button onclick="repondre('oui', 9)" id="oui9">Oui</button>
+      <button onclick="repondre('non', 9)" id="non9">Non</button>
+    </div>
+  
+    <div id="resultat"></div>
+  </div>
+
+<script>
+var reponses = {};
+
+function repondre(reponse, question) {
+  reponses["question" + question] = reponse;
+  
+  // Mettre en surbrillance le bouton sélectionné
+  document.getElementById(reponse + question).classList.add("selected");
+
+  // Réinitialiser les autres boutons
+  var autreReponse = reponse === 'oui' ? 'non' : 'oui';
+  document.getElementById(autreReponse + question).classList.remove("selected");
+
+  if (Object.keys(reponses).length === 9) {
+    // Construire l'URL avec les réponses
+    var url = "resultats.html?";
+    for (var key in reponses) {
+      url += key + "=" + reponses[key] + "&";
+    }
+    // Rediriger vers la page des résultats
+    window.location.href = url.slice(0, -1); // Supprimer le dernier "&"
+  }
+}
+</script>
+
+</body>
+</html>

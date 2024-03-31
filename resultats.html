@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultats du diagnostique d'ordinateur</title>
+<link rel="stylesheet" href="stylesRes.css">
+
+</head>
+<body>
+  
+  <h2>Résultats du diagnostique d'ordinateur : </h2>
+<div id="container">
+  
+  
+  <div id="causes">
+    
+    </div>
+    
+    <div id="solutions">
+      
+    </div>
+  
+</div>
+
+<script>
+// Récupérer les réponses de l'URL
+var urlParams = new URLSearchParams(window.location.search);
+var resultatCauseDiv = document.getElementById("causes");
+var resultatSolutionDiv = document.getElementById("solutions");
+var resultatFinalCause = "<h2>Causes probables :</h2><ul>";
+var resultatFinalSolution = "<h2>Solutions possibles :</h2><ul>";
+
+    if (urlParams.has("question1") && urlParams.get("question1") === "oui") {
+      resultatFinalCause += "<br> => Problème d'alimentation <br>";
+      resultatFinalSolution += "<br> => Vérifiez le câble d'alimentation, essayez une autre prise électrique, vérifiez le commutateur d'alimentation sur l'alimentation.<br>";
+    }
+    if (urlParams.has("question2") && urlParams.get("question2") === "oui") {
+      resultatFinalCause += "<br> => Problème de ventilation <br>";
+      resultatFinalSolution += "<br>=> Nettoyez le ventilateur, vérifiez s'il est bloqué, remplacez-le si nécessaire.<br>";
+    }
+    if (urlParams.has("question3") && urlParams.get("question3") === "oui") {
+        resultatFinalCause += "<br>=> Problème d'affichage<br>";
+        resultatFinalSolution += "<br>=> Vérifiez les câbles d'affichage, redémarrez l'ordinateur, vérifiez la carte graphique.<br>";
+    }
+    if (urlParams.has("question4") && urlParams.get("question4") === "oui") {
+      resultatFinalCause += "<br>=> Problème de performances<br>";
+      resultatFinalSolution += "<br>=> Vérifiez l'utilisation du processeur et de la mémoire, supprimez les programmes inutiles, défragmentez le disque dur.<br>";
+    }
+    if (urlParams.has("question5") && urlParams.get("question5") === "oui") {
+      resultatFinalCause += "<br>=> Problème de réseau<br>";
+      resultatFinalSolution += "<br>=> Redémarrez le routeur, vérifiez les câbles Ethernet, réinitialisez les paramètres réseau.<br>";
+    }
+    if (urlParams.has("question6") && urlParams.get("question6") === "oui") {
+      resultatFinalCause += "<br>=> Problème de périphérique audio<br>";
+      resultatFinalSolution += "<br>=> Vérifiez les paramètres audio, mettez à jour les pilotes audio, vérifiez les connexions des haut-parleurs.<br>";
+    }
+    if (urlParams.has("question7") && urlParams.get("question7") === "oui") {
+      resultatFinalCause += "<br>=> Problème logiciel<br>";
+      resultatFinalSolution += "<br>=> Redémarrez l'ordinateur, vérifiez les applications en cours d'exécution, exécutez une analyse antivirus.<br>";
+    }
+    if (urlParams.has("question8") && urlParams.get("question8") === "oui") {
+      resultatFinalCause += "<br>=> Problème système<br>";
+      resultatFinalSolution += "<br>=> Redémarrez l'ordinateur, recherchez les codes d'erreur BSOD, mettez à jour les pilotes.<br>";
+    }
+    if (urlParams.has("question9") && urlParams.get("question9") === "oui") {
+      resultatFinalCause += "<br>=> Problème matériel<br>";
+      resultatFinalSolution += "<br>=> Vérifiez les composants internes, remplacez les pièces défectueuses, contactez un technicien.<br>";
+    }
+
+resultatFinalCause += "</ul>";
+resultatFinalSolution += "</ul>";
+resultatCauseDiv.innerHTML = resultatFinalCause;
+resultatSolutionDiv.innerHTML = resultatFinalSolution;
+</script>
+
+</body>
+</html>

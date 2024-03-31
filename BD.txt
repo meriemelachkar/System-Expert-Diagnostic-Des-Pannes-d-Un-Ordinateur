@@ -1,0 +1,35 @@
+Si l'ordinateur ne s'allume pas :
+Cause probable : Problème d'alimentation
+Solutions possibles : Vérifiez le câble d'alimentation, essayez une autre prise électrique, vérifiez le commutateur d'alimentation sur l'alimentation.
+
+Si un bruit est émis par le ventilateur :
+Cause probable : Problème de ventilation
+Solutions possibles : Nettoyez le ventilateur, vérifiez s'il est bloqué, remplacez-le si nécessaire.
+
+Si un écran noir apparaît au démarrage :
+Cause probable : Problème d'affichage
+Solutions possibles : Vérifiez les câbles d'affichage, redémarrez l'ordinateur, vérifiez la carte graphique.
+
+Si l'ordinateur est lent :
+Cause probable : Problème de performances
+Solutions possibles : Vérifiez l'utilisation du processeur et de la mémoire, supprimez les programmes inutiles, défragmentez le disque dur.
+
+Si vous rencontrez des problèmes de connexion Internet :
+Cause probable : Problème de réseau
+Solutions possibles : Redémarrez le routeur, vérifiez les câbles Ethernet, réinitialisez les paramètres réseau.
+
+Si vous rencontrez des problèmes audio :
+Cause probable : Problème de périphérique audio
+Solutions possibles : Vérifiez les paramètres audio, mettez à jour les pilotes audio, vérifiez les connexions des haut-parleurs.
+
+Si le système est gelé :
+Cause probable : Problème logiciel
+Solutions possibles : Redémarrez l'ordinateur, vérifiez les applications en cours d'exécution, exécutez une analyse antivirus.
+
+Si vous rencontrez un écran bleu de la mort (BSOD) :
+Cause probable : Problème système
+Solutions possibles : Redémarrez l'ordinateur, recherchez les codes d'erreur BSOD, mettez à jour les pilotes.
+
+Si vous soupçonnez une défaillance matérielle :
+Cause probable : Problème matériel
+Solutions possibles : Vérifiez les composants internes, remplacez les pièces défectueuses, contactez un technicien.

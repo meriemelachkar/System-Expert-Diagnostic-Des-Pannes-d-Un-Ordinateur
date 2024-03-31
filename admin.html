@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Bienvenue Expert</title>
+</head>
+<body>
+  <div id="container" style="text-align: center;">
+    <h1>Bienvenue, Expert!</h1>
+    <button onclick="gerer_les_questions()"> Gérer les Questions </button>
+    <button onclick="gerer_les_causes()"> Gérer les Causes </button>
+    <button onclick="gerer_les_solutions()"> Gérer les Solutions </button>
+  </div>
+
+  <script>
+    function gerer_les_questions() {
+      window.location.href = "questions.html";
+    }
+
+    function gerer_les_causes() {
+      window.location.href = "causes.html";
+    }
+
+    function gerer_les_solutions() {
+      window.location.href = "solutions.html";
+    }
+
+  </script>
+
+</body>
+</html>

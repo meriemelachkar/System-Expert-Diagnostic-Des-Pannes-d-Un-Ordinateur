@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gérer les Questions</title>
+  <style>/* Styles pour le corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20;
+      padding: 20;
+      background-color: #f2f2f2;
+    }
+    
+    /* Style pour le conteneur principal */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Style pour les titres */
+    h1, h2 {
+      color: #333;
+    }
+    
+    /* Style pour la liste des questions */
+    #questionsList {
+      list-style: none;
+      padding: 0;
+    }
+    
+    /* Style pour chaque élément de la liste */
+    #questionsList li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+    
+    /* Style pour les boutons */
+    button {
+      padding: 5px 10px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: #eccdbe;
+      color: #000000;
+    }
+    
+    /* Style pour les boutons lorsqu'ils sont survolés */
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Style pour les champs de formulaire */
+    input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    
+    /* Style pour le bouton "Ajouter" */
+    #questionForm button[type="submit"] {
+      width: auto;
+      padding: 8px 16px;
+    }
+    
+    /* Style pour les étiquettes des champs de formulaire */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    
+    /* Style pour les messages d'alerte */
+    .alert {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    
+    /* Style pour les messages d'alerte de succès */
+    .alert-success {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+    
+    /* Style pour les messages d'alerte d'erreur */
+    .alert-error {
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+    </style>
+</head>
+<body>
+<div id="container" style="text-align: center;">
+  <h1>Questions sur les pannes d'ordinateur</h1>
+  <ul id="questionsList"></ul>
+
+  <h2>Ajouter une nouvelle question :</h2>
+  <form id="questionForm">
+    <label for="nouveauQuestion">Nouvelle question :</label>
+    <input type="text" id="nouveauQuestion" required>
+    <button type="submit">Ajouter</button>
+  </form>
+</div>
+  <script src="listQuestions.js"></script>
+  <script>
+
+    var questionsListElement = document.getElementById("questionsList");
+
+    function afficherQuestion() {
+      questionsListElement.innerHTML = "";
+      questionPanneOrdinateur.forEach(function(question, index) {
+        var listItem = document.createElement("li");
+        listItem.textContent = question;
+        
+        var modifierButton = document.createElement("button");
+        modifierButton.textContent = "Modifier";
+        modifierButton.addEventListener("click", function() {
+          var nouveauNom = prompt("Entrez une nouvelle question :", question);
+          if (nouveauNom !== null && nouveauNom.trim() !== "") {
+            questionPanneOrdinateur[index] = nouveauNom.trim();
+            afficherQuestion();
+          }
+        });
+
+        var supprimerButton = document.createElement("button");
+        supprimerButton.textContent = "Supprimer";
+        supprimerButton.addEventListener("click", function() {
+          if (confirm("Êtes-vous sûr de vouloir supprimer cette question ?")) {
+            questionPanneOrdinateur.splice(index, 1);
+            afficherQuestion();
+          }
+        });
+
+        listItem.appendChild(modifierButton);
+        listItem.appendChild(supprimerButton);
+        
+        questionsListElement.appendChild(listItem);
+      });
+    }
+
+    afficherQuestion();
+
+    var form = document.getElementById("questionForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var nouveauQuestionInput = document.getElementById("nouveauQuestion");
+      var nouveauQuestion = nouveauQuestionInput.value.trim();
+      if (nouveauQuestion !== "") {
+        questionPanneOrdinateur.push(nouveauQuestion);
+        afficherQuestion();
+        nouveauQuestionInput.value = "";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Page de connexion </title>
+</head>
+<body>
+  
+<div id="container" style="text-align: center;">
+  <h1>Bienvenue !</h1>
+  <button id="userBtn" onclick="window.location.href = 'index.html';">Je suis un utilisateur</button>
+  <button id="adminBtn">Je suis un Expert </button>
+</div>
+<script>
+  document.getElementById("adminBtn").addEventListener("click", function() {
+  var username = prompt("Entrez votre nom d'utilisateur:");
+  var password = prompt("Entrez votre mot de passe:");
+
+  if (username === "admin" && password === "admin") {
+    window.location.href = "admin.html";
+  } else {
+    alert("Erreur: Nom d'utilisateur ou mot de passe incorrect!");
+  }
+});
+
+</script>
+</body>
+</html>
